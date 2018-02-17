@@ -16,7 +16,8 @@ RUN apk --no-cache --update add \
     autoconf icu-dev gettext-dev gcc g++ libtool make \
     imagemagick-dev \
     libxml2-dev \
-    openssh
+    openssh \
+    mysql-client
 
 # Install Opcache Extension
 RUN docker-php-ext-configure opcache --enable-opcache \
