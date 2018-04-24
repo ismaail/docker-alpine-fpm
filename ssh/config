@@ -1,0 +1,4 @@
+ServerAliveInterval 3
+Host *
+	StrictHostKeyChecking no
+	UserKnownHostsFile /dev/null

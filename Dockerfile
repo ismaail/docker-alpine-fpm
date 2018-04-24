@@ -62,4 +62,7 @@ RUN apk del .build-deps \
     && apk del autoconf g++ libtool make pcre-dev \
     && rm -rf /var/cache/apk/*
 
+RUN mkdir -p /home/www-data/.ssh
+COPY ./ssh/config /home/www-data/.ssh/config
+
 RUN usermod -u 1000 www-data
