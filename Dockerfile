@@ -51,6 +51,10 @@ RUN docker-php-ext-enable imagick
 # install xmlrpc extension
 RUN docker-php-ext-install xmlrpc
 
+# Install mongodb extension
+RUN pecl install mongodb && \
+    docker-php-ext-enable mongodb
+
 # Install Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 RUN php composer-setup.php
@@ -58,11 +62,12 @@ RUN php -r "unlink('composer-setup.php');"
 RUN mv composer.phar /usr/local/bin/composer
 
 # Cleanup
-RUN apk del .build-deps \
-    && apk del autoconf g++ libtool make pcre-dev \
+RUN apk del --purge .build-deps \
+    && apk del --purge autoconf g++ libtool make pcre-dev \
     && rm -rf /var/cache/apk/*
 
 RUN mkdir -p /home/www-data/.ssh
 COPY ./ssh/config /home/www-data/.ssh/config
 
 RUN usermod -u 1000 www-data
+
