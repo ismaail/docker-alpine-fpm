@@ -14,10 +14,12 @@ RUN apk --no-cache --update add \
     libjpeg-turbo-dev \
     libpng-dev \
     autoconf icu-dev gettext-dev gcc g++ libtool make \
-    imagemagick-dev \
+    imagemagick imagemagick-dev \
     libxml2-dev \
     openssh \
     mysql-client
+
+RUN export CFLAGS="$PHP_CFLAGS" CPPFLAGS="$PHP_CPPFLAGS" LDFLAGS="$PHP_LDFLAGS"
 
 # Install Opcache Extension
 RUN docker-php-ext-configure opcache --enable-opcache \
