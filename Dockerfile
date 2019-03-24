@@ -1,7 +1,7 @@
 FROM php:7.2-fpm-alpine
 
-RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.5/main/' >> /etc/apk/repositories \
-    && echo 'http://dl-cdn.alpinelinux.org/alpine/v3.5/community/' >> /etc/apk/repositories
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.9/main/' >> /etc/apk/repositories \
+    && echo 'http://dl-cdn.alpinelinux.org/alpine/v3.9/community/' >> /etc/apk/repositories
 
 RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS
 
