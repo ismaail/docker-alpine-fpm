@@ -27,6 +27,7 @@ RUN docker-php-ext-configure opcache --enable-opcache \
 
 # Install MySQL PDO Extension
 RUN docker-php-ext-install pdo_mysql
+RUN docker-php-ext-install mysqli
 
 # Install Postgres PDO Extension
 RUN docker-php-ext-install pdo_pgsql
